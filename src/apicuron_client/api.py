@@ -78,6 +78,7 @@ class Report(BaseModel):
     curator_orcid: str
     resource_uri: str
     #: Corresponds to the :`Term.activity_term` in an entry in `Description.terms_def` list
+    entity_uri: str
     activity_term: str
     timestamp: Optional[datetime.datetime] = None
 
