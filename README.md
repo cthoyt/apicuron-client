@@ -35,7 +35,8 @@
     </a>
 </p>
 
-A client for interacting with [APICURON](https://apicuron.org/)
+An unofficial client for interacting with the [APICURON](https://apicuron.org/) curation
+metadatabase.
 
 ## 💪 Getting Started
 
@@ -101,8 +102,7 @@ description.update_remote()
 The results can then be seen on the APICURON website at
 https://apicuron.org/database?resource_uri=https:%2F%2Fbiomappings.github.io%2Fbiomappings%2F.
 
-
-
+<!--
 ### Command Line Interface
 
 The apicuron_client command line tool is automatically installed. It can
@@ -115,16 +115,16 @@ $ apicuron_client --help
 > TODO show the most useful thing the CLI does! The CLI will have documentation auto-generated
 by `sphinx`.
 
+-->
+
 ## 🚀 Installation
 
-<!-- Uncomment this section after your first ``tox -e finish``
 The most recent release can be installed from
 [PyPI](https://pypi.org/project/apicuron_client/) with:
 
 ```bash
 $ pip install apicuron_client
 ```
--->
 
 The most recent code and data can be installed directly from GitHub with:
 
@@ -155,10 +155,6 @@ The code in this package is licensed under the MIT License.
 
 This project isn't officially from the APICURON team, but if you like it, please cite their
 paper:
-
-[APICURON: a database to credit and acknowledge the work of biocurators](https://doi.org/10.1093/database/baab019)
-András Hatos, Federica Quaglia, Damiano Piovesan, Silvio Tosatto
-*Database* (2021)
 
 ```bibtex
 @article{Hatos2021,
