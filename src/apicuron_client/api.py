@@ -3,7 +3,7 @@
 """Main code for interacting with APICURON."""
 
 import datetime
-from typing import Any, List, Mapping, Union
+from typing import Any, List, Mapping, Optional, Union
 
 import pystow
 import requests
@@ -77,18 +77,18 @@ class Report(BaseModel):
 
     curator_orcid: str
     resource_uri: str
-    timestamp: datetime.datetime
     #: Corresponds to the :`Term.activity_term` in an entry in `Description.terms_def` list
     activity_term: str
+    timestamp: Optional[datetime.datetime] = None
 
 
 class Submission(BaseModel):
     """A full submission."""
 
     resource_uri: str
-    time_start: datetime.datetime
-    time_end: datetime.datetime
     reports: List[Report]
+    time_start: Optional[datetime.datetime] = None
+    time_end: Optional[datetime.datetime] = None
 
     def update_remote(self) -> requests.Response:
         """Update this resource on the APICURON site."""
