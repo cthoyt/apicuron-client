@@ -3,6 +3,7 @@
 """Main code for interacting with APICURON."""
 
 import datetime
+from typing import List
 
 import pystow
 import requests
@@ -42,7 +43,7 @@ class Achievement(BaseModel):
 
     category: str  # TODO this could be restricted with an enum
     name: str
-    list_terms: list[str]
+    list_terms: List[str]
     count_threshold: int = 10
     color_code: str = "#055701"
 
@@ -56,8 +57,8 @@ class Description(BaseModel):
     resource_url: str
     resource_long_name: str
     resource_description: str
-    terms_def: list[Term]
-    achievements_def: list[Achievement]
+    terms_def: List[Term]
+    achievements_def: List[Achievement]
 
     def update_remote(self) -> requests.Response:
         """Update this description on the APICURON site."""
@@ -84,7 +85,7 @@ class Submission(BaseModel):
     resource_uri: str
     time_start: datetime.datetime
     time_end: datetime.datetime
-    reports: list[Report]
+    reports: List[Report]
 
     def update_remote(self) -> requests.Response:
         """Update this resource on the APICURON site."""
