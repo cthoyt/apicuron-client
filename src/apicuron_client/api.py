@@ -3,7 +3,7 @@
 """Main code for interacting with APICURON."""
 
 import datetime
-from typing import List
+from typing import Any, List, Mapping, Union
 
 import pystow
 import requests
@@ -19,6 +19,9 @@ __all__ = [
     "Description",
     "Report",
     "Submission",
+    # Utilities
+    "submit_description",
+    "resubmit_curations",
 ]
 
 #: The endpoint for updating the description
@@ -105,3 +108,17 @@ def get_header():
         "Authorization": f"Bearer {token}",
     }
     return header
+
+
+def submit_description(payload: Union[Description, Mapping[str, Any]]) -> requests.Response:
+    """Submit resource data."""
+    if not isinstance(payload, Description):
+        payload = Description(**payload)
+    return payload.update_remote()
+
+
+def resubmit_curations(payload: Union[Submission, Mapping[str, Any]]) -> requests.Response:
+    """Submit curations data."""
+    if not isinstance(payload, Submission):
+        payload = Submission(**payload)
+    return payload.update_remote()

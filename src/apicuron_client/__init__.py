@@ -10,6 +10,8 @@ from .api import (
     Report,
     Submission,
     Term,
+    resubmit_curations,
+    submit_description,
 )
 
 __all__ = [
@@ -22,4 +24,7 @@ __all__ = [
     "Description",
     "Report",
     "Submission",
+    # Utilities
+    "submit_description",
+    "resubmit_curations",
 ]
