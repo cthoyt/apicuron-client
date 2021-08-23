@@ -24,7 +24,7 @@
     <a href="https://github.com/cthoyt/apicuron-client/blob/main/LICENSE">
         <img alt="PyPI - License" src="https://img.shields.io/pypi/l/apicuron-client" />
     </a>
-    <a href='https://apicuron-client.readthedocs.io'>
+    <a href='https://apicuron-client.readthedocs.io/en/latest/'>
         <img src='https://readthedocs.org/projects/apicuron_client/badge/?version=latest' alt='Documentation Status' />
     </a>
     <a href="https://zenodo.org/badge/latestdoi/399071637">
