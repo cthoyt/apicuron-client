@@ -35,7 +35,7 @@
     </a>
 </p>
 
-A client for interacting with APICURON
+A client for interacting with [APICURON](https://apicuron.org/)
 
 ## 💪 Getting Started
 
@@ -151,11 +151,28 @@ Contributions, whether filing an issue, making a pull request, or forking, are a
 
 The code in this package is licensed under the MIT License.
 
-<!--
 ### 📖 Citation
 
-Citation goes here!
--->
+This project isn't officially from the APICURON team, but if you like it, please cite their
+paper:
+
+[APICURON: a database to credit and acknowledge the work of biocurators](https://doi.org/10.1093/database/baab019)
+András Hatos, Federica Quaglia, Damiano Piovesan, Silvio Tosatto
+*Database* (2021)
+
+```bibtex
+@article{Hatos2021,
+   author = {Hatos, Andr{\'{a}}s and Quaglia, Federica and Piovesan, Damiano and Tosatto, Silvio C E},
+   doi = {10.1093/database/baab019},
+   issn = {1758-0463},
+   journal = {Database},
+   month = {apr},
+   title = {{APICURON: a database to credit and acknowledge the work of biocurators}},
+   url = {https://academic.oup.com/database/article/doi/10.1093/database/baab019/6244733},
+   volume = {2021},
+   year = {2021}
+}
+```
 
 ## Acknowledgements
 
