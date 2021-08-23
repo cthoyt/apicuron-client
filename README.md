@@ -22,9 +22,9 @@
         <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/apicuron_client" />
     </a>
     <a href="https://github.com/cthoyt/apicuron-client/blob/main/LICENSE">
-        <img alt="PyPI - License" src="https://img.shields.io/pypi/l/apicuron_client" />
+        <img alt="PyPI - License" src="https://img.shields.io/pypi/l/apicuron-client" />
     </a>
-    <a href='https://apicuron_client.readthedocs.io/en/latest/?badge=latest'>
+    <a href='https://apicuron-client.readthedocs.io'>
         <img src='https://readthedocs.org/projects/apicuron_client/badge/?version=latest' alt='Documentation Status' />
     </a>
     <a href="https://zenodo.org/badge/latestdoi/399071637">
