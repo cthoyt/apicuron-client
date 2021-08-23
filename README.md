@@ -36,8 +36,69 @@ A client for interacting with APICURON
 
 ## 💪 Getting Started
 
-> TODO show in a very small amount of space the **MOST** useful thing your package can do.
-Make it as short as possible! You have an entire set of docs for later.
+The following example shows how you can prepare a submission of a new resource
+to APICURON. Because `apicuron_client` uses PyDantic under the hood, the JSON
+is validated and automatically converted into programmatic models. The
+`Description.update_remote()` function takes care of interacting with the API
+and loading the `APICURON_TOKEN` from the environment or a config file with
+[`pystow`](https://github.com/cthoyt/pystow).
+
+```python
+from apicuron_client import Description
+
+payload = {
+   "resource_id": "Biomappings",
+   "resource_name": "Biomappings",
+   "resource_uri": "https://biomappings.github.io/biomappings/",
+   "resource_url": "https://biomappings.github.io/biomappings/",
+   "resource_long_name": "Biomappings",
+   "resource_description": "Community curated and predicted equivalences and related mappings between named biological entities that are not available from primary sources.",
+   "terms_def": [
+      {
+         "activity_term": "novel_curation",
+         "activity_name": "Curated novel mapping",
+         "activity_category": "generation",
+         "score": 50,
+         "description": "Curated a novel mapping between two entities"
+      },
+      {
+         "activity_term": "validate_prediction",
+         "activity_name": "Validate predicted mapping",
+         "activity_category": "generation",
+         "score": 50,
+         "description": "Affirmed the correctness of a predicted mapping"
+      },
+      {
+         "activity_term": "invalidate_prediction",
+         "activity_name": "Invalidate predicted mapping",
+         "activity_category": "generation",
+         "score": 50,
+         "description": "Affirmed the incorrectness of a predicted mapping"
+      }
+   ],
+   "achievements_def": [
+      {
+         "category": "1",
+         "name": "Newbie curator",
+         "count_threshold": 10,
+         "type": "badge",
+         "list_terms": [
+            "novel_curation",
+            "validate_prediction",
+            "invalidate_prediction"
+         ],
+         "color_code": "#055701"
+      }
+   ]
+}
+description = Description(**payload)
+description.update_remote()
+```
+
+The results can then be seen on the APICURON website at
+https://apicuron.org/database?resource_uri=https:%2F%2Fbiomappings.github.io%2Fbiomappings%2F.
+
+
 
 ### Command Line Interface
 

@@ -40,7 +40,7 @@ class Term(BaseModel):
 class Achievement(BaseModel):
     """An achievement."""
 
-    category: str
+    category: str  # TODO this could be restricted with an enum
     name: str
     list_terms: list[str]
     count_threshold: int = 10
