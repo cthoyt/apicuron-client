@@ -96,6 +96,7 @@ class Submission(BaseModel):
 
 
 def get_header():
+    """Get the APICURON header information."""
     token = pystow.get_config("apicuron", "token")
     if token is None:
         raise RuntimeError("missing APICURON_TOKEN")
