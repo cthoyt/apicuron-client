@@ -27,6 +27,9 @@
     <a href='https://apicuron_client.readthedocs.io/en/latest/?badge=latest'>
         <img src='https://readthedocs.org/projects/apicuron_client/badge/?version=latest' alt='Documentation Status' />
     </a>
+    <a href="https://zenodo.org/badge/latestdoi/399071637">
+        <img src="https://zenodo.org/badge/399071637.svg" alt="DOI">
+    </a>
     <a href='https://github.com/psf/black'>
         <img src='https://img.shields.io/badge/code%20style-black-000000.svg' alt='Code style: black' />
     </a>
