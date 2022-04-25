@@ -108,7 +108,7 @@ def get_header(*, token: Optional[str] = None):
     if token is None:
         raise RuntimeError("missing APICURON_TOKEN")
     header = {
-        "Authorization": f"Bearer [{token}]",
+        "Authorization": f"Bearer {token}",
     }
     return header
 
