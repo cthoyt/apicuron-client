@@ -24,11 +24,13 @@ __all__ = [
     "resubmit_curations",
 ]
 
+BASE_URL = "https://apicuron.org/api"
+
 #: The endpoint for updating the description
-DESCRIPTION_URL = "https://apicuron.bio.unipd.it/api/update_description"
+DESCRIPTION_URL = f"{BASE_URL}/update_description"
 
 #: An endpoint for total resubmission
-RESUBMISSION_URL = "https://apicuron.org/api/resubmit_activity"
+RESUBMISSION_URL = f"{BASE_URL}/resubmit_activity"
 
 
 class Term(BaseModel):
@@ -63,12 +65,12 @@ class Description(BaseModel):
     terms_def: List[Term]
     achievements_def: List[Achievement]
 
-    def update_remote(self) -> requests.Response:
+    def update_remote(self, *, token: Optional[str] = None) -> requests.Response:
         """Update this description on the APICURON site."""
         return requests.post(
             DESCRIPTION_URL,
             json=self.dict(),
-            headers=get_header(),
+            headers=get_header(token=token),
         )
 
 
@@ -91,35 +93,39 @@ class Submission(BaseModel):
     time_start: Optional[datetime.datetime] = None
     time_end: Optional[datetime.datetime] = None
 
-    def update_remote(self) -> requests.Response:
+    def update_remote(self, *, token: Optional[str] = None) -> requests.Response:
         """Update this resource on the APICURON site."""
         return requests.post(
             RESUBMISSION_URL,
             json=self.dict(),
-            headers=get_header(),
+            headers=get_header(token=token),
         )
 
 
-def get_header():
+def get_header(*, token: Optional[str] = None):
     """Get the APICURON header information."""
-    token = pystow.get_config("apicuron", "token")
+    token = pystow.get_config("apicuron", "token", passthrough=token, raise_on_missing=True)
     if token is None:
         raise RuntimeError("missing APICURON_TOKEN")
     header = {
-        "Authorization": f"Bearer {token}",
+        "Authorization": f"Bearer [{token}]",
     }
     return header
 
 
-def submit_description(payload: Union[Description, Mapping[str, Any]]) -> requests.Response:
+def submit_description(
+    payload: Union[Description, Mapping[str, Any]], *, token: Optional[str] = None
+) -> requests.Response:
     """Submit resource data."""
     if not isinstance(payload, Description):
         payload = Description(**payload)
-    return payload.update_remote()
+    return payload.update_remote(token=token)
 
 
-def resubmit_curations(payload: Union[Submission, Mapping[str, Any]]) -> requests.Response:
+def resubmit_curations(
+    payload: Union[Submission, Mapping[str, Any]], *, token: Optional[str] = None
+) -> requests.Response:
     """Submit curations data."""
     if not isinstance(payload, Submission):
         payload = Submission(**payload)
-    return payload.update_remote()
+    return payload.update_remote(token=token)
