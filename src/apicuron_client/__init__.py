@@ -4,7 +4,7 @@
 
 from .api import (
     Achievement,
-    DESCRIPTION_URL,
+    UPDATE_DESCRIPTION_URL,
     Description,
     RESUBMISSION_URL,
     Report,
@@ -12,11 +12,12 @@ from .api import (
     Term,
     resubmit_curations,
     submit_description,
+    get_reports,
 )
 
 __all__ = [
     # URLs
-    "DESCRIPTION_URL",
+    "UPDATE_DESCRIPTION_URL",
     "RESUBMISSION_URL",
     # Data Models
     "Term",
@@ -27,4 +28,5 @@ __all__ = [
     # Utilities
     "submit_description",
     "resubmit_curations",
+    "get_reports",
 ]
